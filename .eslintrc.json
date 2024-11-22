@@ -1,43 +1,28 @@
 {
-  "extends": ["next/core-web-vitals", "airbnb", "airbnb-typescript"],
-  "parserOptions": {
-    "project": "./tsconfig.json"
-  },
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:prettier/recommended",
+    "next/typescript",
+    "next"
+  ],
+  "plugins": ["prettier"],
+  "overrides": [
+    {
+      "files": ["__tests__/**/*"],
+      "plugins": ["jest", "jest-formatting", "jest-dom", "prettier"],
+      "extends": [
+        "plugin:jest/recommended",
+        "plugin:jest-formatting/recommended",
+        "plugin:jest-dom/recommended",
+        "plugin:prettier/recommended",
+        "next/typescript"
+      ],
+      "env": {
+        "jest/globals": true
+      }
+    }
+  ],
   "rules": {
-    "react/jsx-indent-props": "off",
-    "linebreak-style": "off",
-    "object-curly-newline": ["error", { "consistent": true }],
-    "react/jsx-one-expression-per-line": "off",
-    "implicit-arrow-linebreak": "off",
-    "jsx-quotes": ["error", "prefer-single"],
-    "react/function-component-definition": [
-      2,
-      {
-        "namedComponents": "arrow-function",
-        "unnamedComponents": "arrow-function"
-      }
-    ],
-    "react/react-in-jsx-scope": "off",
-    "import/no-extraneous-dependencies": "off",
-    "global-require": "off",
-    "import/prefer-default-export": "off",
-    "react/jsx-props-no-spreading": "off",
-    "@typescript-eslint/indent": "off",
-    "operator-linebreak": "off",
-    "react/require-default-props": "off",
-    "react/prop-types": [
-      2,
-      {
-        "ignore": ["className", "sideOffset", "checked"]
-      }
-    ],
-    "no-trailing-spaces": "off",
-    "react/jsx-curly-newline": "off",
-    "function-paren-newline": "off",
-    "jsx-a11y/click-events-have-key-events": "off",
-    "jsx-a11y/no-static-element-interactions": "off",
-    "react/jsx-no-useless-fragment": "off",
-    "eslint-disable jsx-a11y/no-static-element-interactions": "off",
-    "eslint-disable jsx-a11y/click-events-have-key-events": "off"
+    "@typescript-eslint/ban-ts-comment": "off"
   }
 }
